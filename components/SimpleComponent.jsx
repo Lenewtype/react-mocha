@@ -4,7 +4,7 @@ class SimpleComponent extends React.Component {
 	render () {
 		return (
 			<div className="first-component">
-				You made a simple component!
+				<span>You made a simple component!</span>
 			</div>
 		)
 	}

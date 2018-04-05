@@ -18,12 +18,14 @@ gulp.task('babelify', function () {
     .pipe(gulp.dest('./output/'));
 });
 
-gulp.task('build',['babelify'], function(){
-  console.log('called build')
+gulp.task('test', function () {
+  return gulp.src('./test/**/*.js', { read: false })
+    .pipe(plug.mocha({
+      compilers: 'js:babel-core/register' //this line here needed to be updated from the tutorial
+    }));
+});
+
+gulp.task('default',['babelify', 'test'], function(){ //added in a default task so you can just run gulp
   return gulp.src('./index.html')
         .pipe(plug.open(), {app: 'google-chrome'});
 });
-
-gulp.task('default', ['build'], function() {
-  console.log('Default tast finished. You may start working')
-})

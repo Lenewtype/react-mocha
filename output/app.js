@@ -34,7 +34,11 @@ var SimpleComponent = function (_React$Component) {
 			return React.createElement(
 				"div",
 				{ className: "first-component" },
-				"You made a simple component!"
+				React.createElement(
+					"span",
+					null,
+					"You made a simple component!"
+				)
 			);
 		}
 	}]);
